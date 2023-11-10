@@ -1,38 +1,328 @@
+:root {
+  --text: rgb(255, 178, 105);
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  height: fit-content;
+  background-color: #051923;
+}
+
 .App {
+  display: flex;
+  min-height: 100vh;
+}
+
+/*HEADER*/
+
+.nav-header {
+  background-color: #003554;
+  width: 22%;
+  min-width: 193px;
+}
+
+.nav-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 10%;
+}
+
+.logo-box-top {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.top-logo {
+  min-height: 8rem;
+  background-image: url('../public/img/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo-box-top:hover>.top-logo {
+  scale: 1.1;
+}
+
+.nav-links {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 10px;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.nav-links > a {
+  text-decoration: none;
+  color: white;
+  transition: color 150ms;
+}
+
+@media screen and (max-width: 905px) {
+  .nav-links {
+    font-size: 1.3rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-links > a:hover {
+  color: var(--text);
+}
+
+
+/* MAIN */
+
+main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10%;
+}
+
+.icon-top-box {
+  min-width: 50%;
+  min-height: 78px;
+  background-image: url('/public/img/icon-top.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search-form{
+  display: flex;
+  min-width: 50%;
+  min-height: 42px;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 1%;
+}
+
+.search-input-top {
+  padding-left: 3%;
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  margin-left: 1%;
+}
+
+span.search-button-top {
+  height: 100%;
+  width: 5%;
+  margin-right: 3%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  cursor: pointer;
+  color: var(--text);
+  user-select: none;
+}
+
+span.search-button-top:active {
+  scale: 1.4;
+}
+
+.padding-category-select-box {
+  padding: 90px 5% 20px 5%;
+}
+
+.category-select-box {
+  display: flex;
+  gap: 10px;
+  min-width: 370px;
+  max-width: 940px;
+  flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha quando não houver espaço suficiente */
+  justify-content: center;
+  width: fit-content;
+  gap: 10px;
+}
+
+.category-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 160px;
   color: white;
+  border: 1px solid red;
+  box-sizing: border-box; /* Garante que a borda não aumente a altura dos elementos */
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 1068px) {
+  .category-block {
+    width: 160px;
+    height: 140px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  @media screen and (max-width: 590px) {
+    .nav-header {
+      position: fixed;
+      top: 0;
+      background-color: #003554;
+      width: 100vw;
+      height: 40px;
+    }
+    
+    .menu-btn {
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      background-color: rgba(0, 251, 255, 0.73);
+      border-radius: 5px;
+      padding: 1px;
+      transition: all 150ms;
+    }
+    
+    .disable {
+      display: none;
+    }
+    
+    .menu-btn:active {
+      scale: 1.1;
+    }
+    
+    .line-menu {
+      width: 22px;
+      height: 5px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+    }
+    
+    .menu-btn:hover>.line-menu {
+      background-color: rgb(255, 255, 80);
+    }
+    
+    .nav-bar {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding-top: 0;
+    }
+    
+    .logo-box-top {
+      text-decoration: none;
+      color: white;
+      display: flex;
+      height: fit-content;
+      flex-direction: row-reverse;
+      justify-content: left;
+      text-align: center;
+      cursor: pointer;
+      gap: 2%;
+      margin-right: 2%;
+    }
+    
+    .top-logo {
+      min-width: 2.4rem;
+      min-height: 2.4rem;
+      background-image: url('../public/img/favicon.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 200ms;
+    }
+    
+    .logo-box-top:hover>.top-logo, .logo-box-top:hover>h1 {
+      scale: 1;
+      color: var(--text);
+    }
+    
+    .nav-links {
+      position: relative;
+      height: fit-content;
+      width: fit-content;
+      margin-top: 0;
+      margin-right: 100%;
+      padding: 15px;
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-left: 0;
+      color: white;
+      font-size: 1.2rem;
+      backdrop-filter: blur(2px) saturate(100%);
+      -webkit-backdrop-filter: blur(2px) saturate(100%);
+      background-color: rgba(0, 251, 255, 0.64);
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      transition: all 600ms;
+    }
+    
+    .show-nav-links {
+      margin-right: 0;
+    }
+      
+    .close {
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+    
+    .line-close {
+        position: absolute;
+        width: 22px;
+        height: 5px;
+        transform: all 200ms;
+    }
+    
+    .line-close {
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .line-close:nth-child(1) {
+        transform: rotate(45deg);
+    }
+    .line-close:nth-child(2) {
+        transform: rotate(-45deg);
+    }
+    
+    .nav-links > a {
+      text-decoration: none;
+      color: white;
+      transition: color 150ms;
+    }
+    
+    @media screen and (max-width:555px) {
+      .category-select-box {
+        min-width: 251px;
+      }
+      
+      .category-block {
+        width: 120px;
+        height: 100px;
+      }
+    }
   }
 }
